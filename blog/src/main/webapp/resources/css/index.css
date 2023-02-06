@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	/* 	background: #121212; */
+	
+}
+/* 초기설정 */
+.header {
+	height: 6rem;
+}
+
+.header_wrap {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 1728px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header_title {
+	font-weight: bold;
+	font-size: 2.3125rem;
+	text-decoration: none;
+	font-family: "Fira Mono", monospace;
+}
+
+.header_title>a {
+	color: #ECECEC;
+}
+
+.header_login_btn {
+	height: 4rem;
+	padding-left: 1.3rem;
+	padding-right: 1.3rem;
+	font-size: 1.3rem;
+	border-radius: 2rem;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.modal-dialog {
+    width: 600px;
+    margin: 250px auto;
+}
