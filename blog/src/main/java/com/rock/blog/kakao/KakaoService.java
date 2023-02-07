@@ -1,4 +1,4 @@
-package com.rock.blog;
+package com.rock.blog.kakao;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

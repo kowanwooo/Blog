@@ -1,4 +1,4 @@
-package com.rock.blog;
+package com.rock.blog.kakao;
 
 import java.util.HashMap;
 
@@ -15,7 +15,7 @@ public class KakaoController {
 	@Autowired
 	private KakaoService ks;
 
-	@RequestMapping(value = "/kakaoLogin", method = RequestMethod.GET)
+	@RequestMapping(value = "blog/kakaoLogin", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model) throws Exception {
 		System.out.println("code >>> " + code);
 
