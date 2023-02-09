@@ -4,6 +4,10 @@
 	<select id="one" parameterType="Long" resultType="postVO">
 		select * from post where postId=#{userId}
 	</select>
+	
+	<select id="list" parameterType="postVO" resultType="postVO">
+		select * from post
+	</select>
 </mapper>
 
 

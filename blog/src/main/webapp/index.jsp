@@ -15,9 +15,9 @@
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script type="text/javascript">
 	$.ajax({
-		url : "fetchBoard",
+		url : "/post/",
 		success : function(table) {
-			console.log(table)
+			$("#result").html(table)
 		}
 	})
 </script>
@@ -47,21 +47,7 @@
 				aria-current="page" href="#">Active</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 		</ul>
-
-		<!--card  -->
-		<div class="card" style="width: 18rem;">
-			<img src="..." class="card-img-top" alt="...">
-			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">Some quick example text to build on the
-					card title and make up the bulk of the card's content.</p>
-			</div>
-			<ul class="list-group list-group-flush">
-
-				<li class="list-group-item">A third item</li>
-			</ul>
-			<div class="card-body"></div>
-		</div>
+		<div id="result"></div>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1"
