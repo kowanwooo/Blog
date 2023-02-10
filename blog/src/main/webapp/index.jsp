@@ -44,8 +44,8 @@
 		<!--navTab  -->
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
-				aria-current="page" href="#">Active</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+				aria-current="page" href="#">트렌딩</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">최신</a></li>
 		</ul>
 		<div id="result"></div>
 	</div>
@@ -75,7 +75,7 @@
 					<a class="p-2"
 						href="https://kauth.kakao.com/oauth/authorize?
 		client_id=cbb14ffbd400c4cf6137e3aa91ca7a34&
-		redirect_uri=http://localhost:8087/blog/kakaoLogin&response_type=code">
+		redirect_uri=http://localhost:8087/post/kakaoLogin&response_type=code">
 						<img src="resources/img/kakao_login.png" style="height: 50px">
 					</a>
 				</div>

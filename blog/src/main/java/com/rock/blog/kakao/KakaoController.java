@@ -15,7 +15,7 @@ public class KakaoController {
 	@Autowired
 	private KakaoService ks;
 
-	@RequestMapping(value = "blog/kakaoLogin", method = RequestMethod.GET)
+	@RequestMapping(value = "post/kakaoLogin", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model) throws Exception {
 		System.out.println("code >>> " + code);
 
@@ -28,6 +28,6 @@ public class KakaoController {
 		
 		model.addAttribute("nickname", userInfo.get("nickname"));
 		model.addAttribute("profile_image", userInfo.get("profile_image"));
-		return "/blog/login";
+		return "/post/kakaoLogin";
 	}
 }
