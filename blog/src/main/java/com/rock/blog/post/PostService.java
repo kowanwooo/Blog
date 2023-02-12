@@ -11,14 +11,13 @@ public class PostService {
 	@Autowired
 	private PostDAO postDAO;
 
-	public PostVO viewPostDetail(Long postId) {
-		return postDAO.selectPostById(postId);
-	}
-
 	public List<PostVO> viewPostAll(PostVO vo) {
 		return postDAO.selectPostAll(vo); 
 	}
 	
-
+	
+	public PostVO viewPostDetail(Long postId) {
+		return postDAO.selectPostById(postId);
+	}
 
 }

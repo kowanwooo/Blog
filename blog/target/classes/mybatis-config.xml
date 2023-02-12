@@ -7,9 +7,11 @@
      별명을 지어서 사용 -->
   <typeAliases>
       <typeAlias type="com.rock.blog.post.PostVO" alias="postVO"></typeAlias>
+      <typeAlias type="com.rock.blog.user.UserVO" alias="userVO"></typeAlias>
    </typeAliases>
    <mappers>
    <!-- SQL문 정의하는 파일들의 목록을 지정. -->
       <mapper resource="mapper/postMapper.xml" />
+      <mapper resource="mapper/userMapper.xml" />
    </mappers>
 </configuration>
