@@ -43,7 +43,7 @@ body {
 	color: #ECECEC;
 }
 
-.header_login_btn {
+.header_login_btn, .header_logout_btn {
 	height: 4rem;
 	padding-left: 1.3rem;
 	padding-right: 1.3rem;

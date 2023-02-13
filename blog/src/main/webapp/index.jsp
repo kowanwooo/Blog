@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String userNickName = (String) session.getAttribute("userNickName");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +18,24 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script type="text/javascript">
-	$.ajax({
-		url : "/post/",
-		success : function(table) {
-			$("#result").html(table)
-		}
+	$(function() {
+
+		$.ajax({
+			url : "/post/",
+			success : function(table) {
+				$("#result").html(table)
+			}
+		})
+
+		$(".header_logout_btn").on("click", function() {
+			$.ajax({
+				url : "/user/logout",
+				success : function() {
+					window.location = '/';
+				}
+			})
+		});
+
 	})
 </script>
 </head>
@@ -29,14 +46,17 @@
 				<a href="/">Blog</a>
 			</div>
 			<div>
-				<button>
-					<div>
-						<div>해,달</div>
-					</div>
-				</button>
-				<a href="/search">검색</a>
-				<button class="header_login_btn" data-bs-toggle="modal"
-					data-bs-target="#exampleModal">로그인</button>
+				<a href="/post/search">검색</a>
+				<c:choose>
+					<c:when test="${empty userNickName}">
+						<button class="header_login_btn" data-bs-toggle="modal"
+							data-bs-target="#exampleModal">로그인</button>
+					</c:when>
+					<c:otherwise>
+						<a href="/post/write">글쓰기</a>
+						<button class="header_logout_btn">로그아웃</button>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>
