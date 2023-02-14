@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.rock.blog.user.UserVO;
+
 @Service
 public class PostService {
 
@@ -18,6 +20,10 @@ public class PostService {
 	
 	public PostVO viewPostDetail(Long postId) {
 		return postDAO.selectPostById(postId);
+	}
+
+	public void createPost(PostVO vo) {
+		postDAO.insertPostInfo(vo);
 	}
 
 }

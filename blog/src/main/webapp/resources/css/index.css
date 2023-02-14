@@ -13,9 +13,8 @@ a {
 	text-decoration: none;
 }
 
-body {
-	/* 	background: #121212; */
-	
+#root {
+	background: #F8F9FA;
 }
 /* 초기설정 */
 .header {
@@ -40,14 +39,14 @@ body {
 }
 
 .header_title>a {
-	color: #ECECEC;
+	color: #343A40;
 }
 
-.header_login_btn, .header_logout_btn {
-	height: 4rem;
+.header_login_btn, .header_logout_btn, .header_search_btn {
+	height: 3rem;
 	padding-left: 1.3rem;
 	padding-right: 1.3rem;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 	border-radius: 2rem;
 	border: none;
 	outline: none;
@@ -64,4 +63,71 @@ body {
 	width: 1728px;
 	margin-left: auto;
 	margin-right: auto;
+}
+/* 리스트 */
+.list_wrap {
+	display: flex;
+	margin-top: 2rem;
+}
+
+.list_flex {
+	flex: 1 1 0%;
+}
+
+#result {
+	display: flex;
+	margin: -1rem;
+	flex-wrap: wrap;
+}
+
+#card_style {
+	width: 20rem;
+	background: var(- -bg-element1);
+	border-radius: 4px;
+	box-shadow: rgb(0 0 0/ 4%) 0px 4px 16px 0px;
+	transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+	margin: 1rem;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#card_style:hover {
+	transform: translateY(-5px);
+}
+
+.post_title {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 25%;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.content_title {
+	margin: 1rem 0;
+}
+
+.write_btn {
+	background-color: #eee;
+	border: none;
+	border-radius: 50px;
+	padding: 10px 20px;
+	margin: 9px 0;
+	width: 116px;
+	font-weight: bold;
+	font-size: 19px;
+}
+
+.write_btn_wrap {
+	justify-content: end;
+	display: flex;
+	margin-right: 1px;
+	margin-top: 9px;
+}
+
+.post_write_btn {
+	margin-left: 10px;
 }

@@ -8,6 +8,12 @@
 	<select id="list" parameterType="postVO" resultType="postVO">
 		select * from post
 	</select>
+	
+	<insert id="create" parameterType="postVO">
+		insert into post
+		values
+		(null, #{title}, #{content}, #{createdAt}, #{thumbnail})
+	</insert>
 </mapper>
 
 

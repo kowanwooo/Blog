@@ -6,7 +6,8 @@ public class PostVO {
 	private Long postId;
 	private String title;
 	private String content;
-	private Date createAt;
+	private Date createdAt;
+	private String thumbnail;
 	
 	public Long getPostId() {
 		return postId;
@@ -33,16 +34,25 @@ public class PostVO {
 	}
 
 	public Date getCreateAt() {
-		return createAt;
+		return createdAt;
 	}
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+	public void setCreateAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 	@Override
 	public String toString() {
-		return "PostVO [postId=" + postId + ", title=" + title + ", content=" + content + ", createAt=" + createAt
+		return "PostVO [postId=" + postId + ", title=" + title + ", content=" + content + ", createdAt=" + createdAt
 				+ "]";
 	}
 	

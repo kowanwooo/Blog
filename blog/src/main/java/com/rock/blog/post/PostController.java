@@ -5,18 +5,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.rock.blog.user.UserVO;
 
 @RestController
 @RequestMapping("/post")
@@ -51,14 +53,21 @@ public class PostController {
 		return model;
 	}
 	
-	@GetMapping(value = "/writeTest.do")
+	@GetMapping("/create")
+	public String createPost(PostVO vo, ModelAndView model) {
+		System.out.println(vo);
+		postservice.createPost(vo);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/writeTest.do")
 	public ModelAndView writeTestGet(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/post/toast_UI_writer3");
 		return mv;
 	}
 	
-	@PostMapping(value = "/writeTest.do")
+	@PostMapping("/writeTest.do")
 	public ModelAndView writeTestPost(@RequestParam("image") MultipartFile multi, HttpServletRequest request, HttpServletResponse response) {
 		
 		String url = null;

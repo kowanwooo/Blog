@@ -1,5 +1,6 @@
 package com.rock.blog.post;
 
+import java.util.Date;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,4 +21,8 @@ public class PostDAO {
 		return my.selectList("post.list", vo);
 	}
 
+	public void insertPostInfo(PostVO vo) {
+		vo.setCreateAt(new Date());
+		my.insert("post.create", vo);
+	}
 }

@@ -26,28 +26,35 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
 <link rel="stylesheet"
 	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+<link rel="stylesheet" href="../../resources/css/index.css">
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 </head>
 <body>
-	<h1>제목</h1>
-	<input type="text" placeholder="제목을 적어주세요">
-	<h2>내용</h2>
-	<!-- TOAST UI Editor가 들어갈 div태그 -->
-	<div id="editor"></div>
-	<button onClick="location.href='/'">뒤로가기</button>
-	<button>출간하기</button>
-	<!-- !!여기!! 에디터 내용을 받을 div태그-->
-	<div id="contents"></div>
+	<div style="margin: 3rem;">
+		<h1>제목</h1>
+		<input class="post_title" name="title" type="text"
+			placeholder="제목을 적어주세요">
+		<h2 class="content_title">내용</h2>
+		<!-- TOAST UI Editor가 들어갈 div태그 -->
+		<div id="editor"></div>
+		<div class="write_btn_wrap">
+			<button class="write_btn" onClick="location.href='/'">뒤로가기</button>
+			<button class="post_write_btn write_btn">출간하기</button>
+		</div>
+		<!-- !!여기!! 에디터 내용을 받을 div태그-->
+		<div id="contents"></div>
+	</div>
 	<!-- TOAST UI Editor CDN URL(JS) -->
 	<script
 		src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
 	<!-- TOAST UI Editor 생성 JavaScript 코드 -->
 	<script>
+		var thumbnail = "/resources/img/default.jpg";
 		const editor = new toastui.Editor({
 			el : document.querySelector('#editor'),
 			previewStyle : 'vertical',
-			height : '700px',
+			height : '600px',
 			// placeholder
 			initialValue : '내용을 적어주세요.',
 			// 이미지가 Base64 형식으로 입력되는 것 가로채주는 옵션
@@ -73,7 +80,7 @@
 		           		success: function(data) {
 		           			console.log('ajax 이미지 업로드 성공');
 		           			url += data.filename;
-		           			
+		           			thumbnail = url;
 		           			// callback : 에디터(마크다운 편집기)에 표시할 텍스트, 뷰어에는 imageUrl 주소에 저장된 사진으로 나옴
 		        			// 형식 : ![대체 텍스트](주소)
 		           			callback(url, '');
@@ -89,7 +96,6 @@
 		    
 			}
 		});
-
 		
 		
 		// editor.getHTML()을 사용해서 에디터 내용 받아오기
@@ -98,6 +104,23 @@
 			document.querySelector('#contents').insertAdjacentHTML('afterbegin',
 					editor.getHTML());
 			console.log(editor.getHTML());
+		});
+		
+		btnEle1 = document.querySelector('.post_write_btn');
+		btnEle1.addEventListener("click", function() {
+			$.ajax({
+           		url: '/post/create',
+           		data: {
+           			title : $('input[name=title]').val(),
+           			content : editor.getHTML(),
+           			thumbnail : thumbnail,
+           		},
+           		success: function() {
+           			console.log('create 성공');
+           			window.location = '/';
+           		},
+           	});
+					
 		});
 	</script>
 </body>

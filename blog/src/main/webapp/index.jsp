@@ -40,34 +40,42 @@
 </script>
 </head>
 <body>
-	<div class="header">
-		<div class="header_wrap">
-			<div class="header_title">
-				<a href="/">Blog</a>
-			</div>
-			<div>
-				<a href="/post/search">검색</a>
-				<c:choose>
-					<c:when test="${empty userNickName}">
-						<button class="header_login_btn" data-bs-toggle="modal"
-							data-bs-target="#exampleModal">로그인</button>
-					</c:when>
-					<c:otherwise>
-						<a href="/post/write">글쓰기</a>
-						<button class="header_logout_btn">로그아웃</button>
-					</c:otherwise>
-				</c:choose>
+	<div id="root">
+		<!-- 헤더 -->
+		<div class="header">
+			<div class="header_wrap">
+				<div class="header_title">
+					<a href="/">Blog</a>
+				</div>
+				<div>
+					<button class="header_search_btn" onClick="location.href='/post/search'">검색</button>
+					<c:choose>
+						<c:when test="${empty userNickName}">
+							<button class="header_login_btn" data-bs-toggle="modal"
+								data-bs-target="#exampleModal">로그인</button>
+						</c:when>
+						<c:otherwise>
+							<a href="/post/write">글쓰기</a>
+							<button class="header_logout_btn">로그아웃</button>
+						</c:otherwise>
+					</c:choose>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="main_list">
-		<!--navTab  -->
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active"
-				aria-current="page" href="#">트렌딩</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">최신</a></li>
-		</ul>
-		<div id="result"></div>
+		<!-- 	리스트 -->
+		<div class="main_list">
+			<!--navTab  -->
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="#">트렌딩</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">최신</a></li>
+			</ul>
+			<div class="list_wrap">
+				<div class="list_flex">
+					<div id="result"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1"
