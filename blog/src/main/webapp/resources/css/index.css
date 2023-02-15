@@ -9,10 +9,6 @@ ul, ol {
 	list-style: none;
 }
 
-a {
-	text-decoration: none;
-}
-
 #root {
 	background: #F8F9FA;
 }
@@ -42,7 +38,8 @@ a {
 	color: #343A40;
 }
 
-.header_login_btn, .header_logout_btn, .header_search_btn {
+.header_login_btn, .header_logout_btn, .header_search_btn,
+	.header_write_btn {
 	height: 3rem;
 	padding-left: 1.3rem;
 	padding-right: 1.3rem;
