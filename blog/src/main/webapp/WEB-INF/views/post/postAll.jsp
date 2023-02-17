@@ -4,7 +4,9 @@
 <c:forEach items="${post}" var="post" varStatus="status">
 	<!--card  -->
 	<div id="card_style" class="card">
-		<img src="${post.thumbnail}" class="card-img-top" alt="...">
+		<a href="/post/${post.postId}"> <img src="${post.thumbnail}"
+			class="card-img-top" alt="...">
+		</a>
 		<div class="card-body">
 			<h5 class="card-title">
 				<a href="/post/${post.postId}">${post.title} </a>

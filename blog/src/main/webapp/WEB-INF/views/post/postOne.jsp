@@ -11,11 +11,14 @@
 </head>
 <body>
 	<jsp:include page="../../../header/header.jsp"></jsp:include>
-	<h1>${post.title}</h1>
-	<ul class="list-group list-group-flush">
-		<li class="list-group-item"></li>
-		<li class="list-group-item">${post.content}</li>
-		<li class="list-group-item">${post.createAt}</li>
-	</ul>
+	<div class="postOne">
+		<div class="postOne_wrap">
+			<h1>${post.title}</h1>
+			<ul>
+				<li>${post.content}</li>
+				<li>${post.createAt}</li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

@@ -116,6 +116,7 @@ ul, ol {
 	width: 116px;
 	font-weight: bold;
 	font-size: 19px;
+	cursor: pointer;
 }
 
 .write_btn_wrap {
@@ -127,4 +128,23 @@ ul, ol {
 
 .post_write_btn {
 	margin-left: 10px;
+}
+
+.postOne {
+	margin-top: 5.5rem;
+}
+
+.postOne_wrap {
+	width: 768px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.postOne_wrap>h1 {
+	font-size: 3rem;
+	line-height: 1.5;
+	letter-spacing: -0.004em;
+	margin-top: 0px;
+	font-weight: 800;
+	margin-bottom: 2rem;
 }

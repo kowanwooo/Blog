@@ -23,8 +23,14 @@ public class KakaoController {
 		System.out.println("access_Token >>> " + access_Token);
 
 		HashMap<String, Object> userInfo = ks.getUserInfo(access_Token);
+		
+		System.out.println("user_id >> " + userInfo.get("user_id"));
 		System.out.println("nickname >> " + userInfo.get("nickname"));
 		System.out.println("profile_image >> " + userInfo.get("profile_image"));
+
+		//기존 유저인지 확인 코드 user테이블에 카카오 고유 user_id가 
+		//회원가입이 되어있는지 확인 후 / 이동 아니면 /post/kakaoLogin 이동; 
+		
 		
 		model.addAttribute("nickname", userInfo.get("nickname"));
 		model.addAttribute("profile_image", userInfo.get("profile_image"));
