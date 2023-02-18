@@ -6,6 +6,10 @@
 		values
 		(null, #{nickname}, #{userName}, #{introduce})
 	</insert>
+	
+	<select id="checkUser" parameterType="Long" resultType="userVO">
+		select * from user where userId=#{userId}
+	</select>
 </mapper>
 
 

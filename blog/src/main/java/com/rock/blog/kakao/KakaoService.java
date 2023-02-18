@@ -8,7 +8,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.rock.blog.user.UserVO;
 
 @Service
 @PropertySource("classpath:config/kakao.properties")
@@ -25,6 +28,9 @@ public class KakaoService {
 
 	@Value("${kakao.redirect_url}")
 	private String redirect_url;
+	
+	@Autowired
+	private KakaoDAO kakaoDAO;
 	
 	public String getAccessToken (String authorize_code) {
 		String access_Token = "";
@@ -130,5 +136,9 @@ public class KakaoService {
 			e.printStackTrace();
 		}
 		return userInfo;
+	}
+
+	public UserVO checkUser(Long userId) {
+		return kakaoDAO.checkUserInfo(userId);
 	}
 }

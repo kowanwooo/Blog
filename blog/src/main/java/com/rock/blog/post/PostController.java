@@ -54,8 +54,11 @@ public class PostController {
 	}
 	
 	@GetMapping("/create")
-	public String createPost(PostVO vo, ModelAndView model) {
+	public String createPost(PostVO vo, ModelAndView model, HttpSession session) {
 		System.out.println(vo);
+		Long sessionString = Long.valueOf((String) session.getAttribute("userNickName")); 
+		System.out.println(sessionString);
+		vo.setUserId(sessionString);
 		postservice.createPost(vo);
 		return "redirect:/";
 	}

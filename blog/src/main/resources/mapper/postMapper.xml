@@ -12,7 +12,7 @@
 	<insert id="create" parameterType="postVO">
 		insert into post
 		values
-		(null, #{title}, #{content}, #{createdAt}, #{thumbnail})
+		(null,#{userId}, #{title}, #{content}, #{createAt}, #{thumbnail})
 	</insert>
 </mapper>
 

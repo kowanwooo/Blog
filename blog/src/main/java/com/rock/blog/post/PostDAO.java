@@ -1,5 +1,7 @@
 package com.rock.blog.post;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class PostDAO {
 
 	@Autowired
 	SqlSessionTemplate my;
-	
+
 	public PostVO selectPostById(Long postId) {
 		return my.selectOne("post.one", postId);
 	}
@@ -22,7 +24,12 @@ public class PostDAO {
 	}
 
 	public void insertPostInfo(PostVO vo) {
-		vo.setCreateAt(new Date());
+		Date now = new Date();
+		System.out.println(now); 
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일");
+		String formatedNow = formatter.format(now);
+		System.out.println(formatedNow);
+		vo.setCreateAt(formatedNow);
 		my.insert("post.create", vo);
 	}
 }
